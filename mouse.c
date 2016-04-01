@@ -53,7 +53,7 @@ static struct file_operations fops =
 };
 int init_module(void)
 {
-         int t = register_chrdev(90,"myfirst",&fops);
+         int t = register_chrdev(90,"ourDev",&fops);
       if(t<0) printk(KERN_ALERT "device registration failed .. \n");
       else printk(KERN_ALERT "device registered.. \n");
       return t;
@@ -61,7 +61,7 @@ int init_module(void)
 
 void cleanup_module(void)
 {
-        unregister_chrdev(90,"myfirst");
+        unregister_chrdev(90,"ourDev");
 }
 static int dev_open(struct inode *inod,struct file *fil)
 {
